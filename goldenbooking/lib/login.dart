@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'register.dart';
 
 
 class login extends StatelessWidget {
@@ -203,7 +204,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         Expanded(
                           child: OutlinedButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Google sign-in aún no está conectado.')),
+                              );
+                            },
                             icon: const Icon(Icons.g_mobiledata, size: 28),
                             label: const Text('Google'),
                             style: OutlinedButton.styleFrom(
@@ -216,7 +221,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(width: 16),
                         Expanded(
                           child: OutlinedButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Apple sign-in aún no está conectado.')),
+                              );
+                            },
                             icon: const Icon(Icons.apple, size: 20),
                             label: const Text('Apple'),
                             style: OutlinedButton.styleFrom(
@@ -237,7 +246,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Text("Don't have an account? ", style: TextStyle(color: Colors.grey[600], fontSize: 14)),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => const RegisterScreen(),
+                                ),
+                              );
+                            },
                             child: const Text(
                               'Sign Up',
                               style: TextStyle(color: Color(0xFFD4AF37), fontWeight: FontWeight.bold),
